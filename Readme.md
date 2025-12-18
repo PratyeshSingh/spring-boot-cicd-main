@@ -41,3 +41,61 @@ http://localhost:8080/
 # Database Tool PGAdmin
 - https://www.pgadmin.org/download/pgadmin-4-macos/
 - install arm64.dmg (for apple Silicon chip)
+
+### Jenkins Config
+
+pipeline{
+agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "M3"
+    }
+    
+    environment {
+        PATH = "/usr/local/bin:/Applications/Docker.app/Contents/Resources/bin:${env.PATH}"
+    }
+    
+    stages {
+        
+        stage('Check Tools') {
+            steps {
+                sh 'mvn -version'
+                sh 'docker --version'
+            }
+        }
+
+        stage('Maven Build') {
+            steps {
+                // Checkout source code from GitHub
+                checkout scmGit(
+                    branches: [[name: '*/main']],
+                    extensions: [],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/PratyeshSingh/spring-boot-cicd-main.git',
+                        credentialsId: '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'
+                    ]]
+                )
+        
+                // Run Maven build
+                sh 'mvn clean install'
+            }
+        }
+			 
+        stage('Build Docker Image') {
+            steps {
+                script{
+                    sh 'docker build -t pratyesh3/spring-boot-docker .'
+                }
+            }
+        }
+        
+        stage('Run Docker Image') {
+            steps {
+                script{
+                    sh 'docker run -d -p 9090:9090 pratyesh3/spring-boot-docker'
+                }
+            }
+        }
+     }
+}
