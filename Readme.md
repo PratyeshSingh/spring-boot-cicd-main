@@ -40,8 +40,9 @@ http://localhost:8080/
 
 
 # Database Tool PGAdmin
-- https://www.pgadmin.org/download/pgadmin-4-macos/
+- https://www.postgresql.org/download/ ( postgresql-15.15-1-osx.dmg )
 - install arm64.dmg (for apple Silicon chip)
+- password := password123
 
 ### Jenkins Config
 
