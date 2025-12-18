@@ -18,14 +18,15 @@
 ### Jenkin configuration
 ![Screenshot 2025-12-18 at 11.13.54 AM.png](jenkins_screenshots/Screenshot%202025-12-18%20at%2011.13.54%E2%80%AFAM.png) {width=200}
 ![Screenshot 2025-12-18 at 11.18.50 AM.png](jenkins_screenshots/Screenshot%202025-12-18%20at%2011.18.50%E2%80%AFAM.png) {width=200}
-
+![Screenshot 2025-12-18 at 5.29.35 PM.png](jenkins_screenshots/Screenshot%202025-12-18%20at%205.29.35%E2%80%AFPM.png) {width=200}
+![Screenshot 2025-12-18 at 5.32.17 PM.png](jenkins_screenshots/Screenshot%202025-12-18%20at%205.32.17%E2%80%AFPM.png) {width=200}
 
 ### Jenkins URL
 http://localhost:8080/
 
 - user := pratyesh
 - pwd := admin
-- Run Project function := http://localhost:8080/welcome
+- Run Project function := http://localhost:9090/welcome
 
 # Downloads
 - https://www.jenkins.io/download/lts/macos/
